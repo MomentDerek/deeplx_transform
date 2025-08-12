@@ -1,5 +1,5 @@
 # 构建阶段
-FROM golang:1.21-alpine AS builder
+FROM golang:1.24-alpine AS builder
 
 WORKDIR /app
 
@@ -7,6 +7,7 @@ WORKDIR /app
 COPY go.mod go.sum ./
 
 # 下载依赖
+RUN go env -w GOPROXY=https://goproxy.cn,direct
 RUN go mod download
 
 # 复制源代码
