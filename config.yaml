@@ -1,0 +1,31 @@
+# 转发器配置文件
+server:
+  # 监听端口
+  port: "8080"
+
+target:
+  # 目标服务的基础 URL（不包含路径）
+  # 请根据实际情况修改此 URL
+  base_url: "https://api.deeplx.org"
+  
+  # 当 v2 请求没有提供 source_lang 时使用的默认值
+  # 可选值: auto, ZH, EN, DE, FR, ES, PT, IT, NL, PL, RU, JA, KO 等
+  default_source_lang: "auto"
+
+# 性能配置
+performance:
+  # 最大并发请求数（防止过多并发导致上游服务过载）
+  max_concurrent_requests: 10
+  # 单个请求超时时间（秒）
+  request_timeout: 30
+
+# 调试配置
+debug:
+  # 是否启用调试日志
+  enabled: true
+  # 是否记录请求体
+  log_request_body: true
+  # 是否记录响应体
+  log_response_body: true
+  # 是否记录请求头
+  log_headers: true
